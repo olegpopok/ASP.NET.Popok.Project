@@ -1,0 +1,52 @@
+﻿@model PL.MVC.Models.Account.RegisterModel
+
+@{
+    Layout = "~/Views/Shared/_NotAuth.cshtml";
+    ViewBag.Title = "Sing up";
+}
+
+<h2>Registeration:</h2>
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { id="sing-up", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div>
+        @Html.LabelFor(model => model.UserName)<br/>
+        @Html.EditorFor(model => model.UserName)
+        @Html.ValidationMessageFor(model => model.UserName)<br/>
+
+        @Html.LabelFor(model => model.Name)<br/>
+        @Html.EditorFor(model => model.Name)
+        @Html.ValidationMessageFor(model => model.Name)<br/>
+
+        @Html.LabelFor(model => model.Bio)<br/>
+        @Html.EditorFor(model => model.Bio)
+        @Html.ValidationMessageFor(model => model.Bio)<br/>
+
+        @Html.LabelFor(model => model.Website)<br/>
+        @Html.EditorFor(model => model.Website)
+        @Html.ValidationMessageFor(model => model.Website)<br/>
+
+        @Html.LabelFor(model => model.Password)<br/>
+        @Html.EditorFor(model => model.Password)
+        @Html.ValidationMessageFor(model => model.Password)<br/>
+
+        @Html.LabelFor(model => model.ConfirmPassword)<br/>
+        @Html.EditorFor(model => model.ConfirmPassword)
+        @Html.ValidationMessageFor(model => model.ConfirmPassword)<br/>
+
+        @Html.LabelFor(model => model.Avatar)<br/>
+        @Html.EditorFor(model => model.Avatar)
+    </div>
+    <input type="submit" value="Sing up"/>
+}
+@Html.ActionLink("Log in", "Login")
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $.validator.addMethod('accept', function () { return true; });
+    </script>
+}
+

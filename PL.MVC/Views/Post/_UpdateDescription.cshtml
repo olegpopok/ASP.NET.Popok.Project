@@ -1,0 +1,7 @@
+﻿@model PL.MVC.Models.Post.ChangePostModel
+
+@Model.Description
+<div>
+    @Ajax.ActionLink("Change", "Change", new {id = Model.Id}, new AjaxOptions {UpdateTargetId ="description-" + Model.Id.ToString()})
+    @Ajax.ActionLink("Delete", "Delete", new {id = Model.Id}, new AjaxOptions{UpdateTargetId = Model.Id.ToString(), Confirm = "Are you sure?"} )
+</div>

@@ -1,0 +1,11 @@
+﻿@model PL.MVC.Infrastructure.UserBlockInfo<PL.MVC.Models.Post.PostViewModel>
+
+@Html.Partial("_List", Model.Items)
+
+@if (Model.CurrentItems < Model.TotalItems)
+{
+    <div id="block-@Model.PageNumber">
+        @Ajax.ActionLink("Upload more.", "UserList", "Post", 
+            new {id = Model.UserId, page = Model.PageNumber + 1}, new AjaxOptions{UpdateTargetId = "block-"+@Model.PageNumber} )
+    </div>
+}

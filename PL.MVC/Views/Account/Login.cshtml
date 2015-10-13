@@ -1,0 +1,31 @@
+﻿@model PL.MVC.Models.Account.LoginModel
+
+@{
+    ViewBag.Title = "Log in";
+    Layout = "~/Views/Shared/_NotAuth.cshtml";
+}
+
+<h2>Login</h2>
+@using(@Html.BeginForm()){   
+    @Html.ValidationSummary(true)
+    @Html.AntiForgeryToken()
+
+    @Html.LabelFor(model => model.UserName)<br/>
+    @Html.EditorFor(model => model.UserName)
+    @Html.ValidationMessageFor(model => model.UserName)<br/>
+    
+    @Html.LabelFor(model => model.Password)<br/>
+    @Html.EditorFor(model => model.Password)
+    @Html.ValidationMessageFor(model => model.Password)<br/>
+    
+    @Html.LabelFor(model => model.Remember)
+    @Html.EditorFor(model => model.Remember)
+
+    <input type="submit" value="Log in"/>
+}
+<div>@Html.ActionLink("Regisration", "Register", "Account")</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

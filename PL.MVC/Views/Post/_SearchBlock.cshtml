@@ -1,0 +1,13 @@
+﻿@model PL.MVC.Infrastructure.SearchBlockInfo<PL.MVC.Models.Post.PostViewModel>
+
+@Html.Partial("_List", Model.Items)
+
+@if (Model.CurrentItems < Model.TotalItems)
+{
+    <div id="block-@Model.PageNumber">
+        @Ajax.ActionLink("Upload more.", "Search", "Post", 
+            new {search = Model.SearchString, page = Model.PageNumber + 1}, new AjaxOptions{UpdateTargetId = "block-"+@Model.PageNumber} )
+
+
+    </div>
+}

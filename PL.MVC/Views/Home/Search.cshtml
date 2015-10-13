@@ -1,0 +1,8 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+}
+
+<h4>@Model</h4>
+<h5>@ViewBag.Count posts</h5>
+@Html.Action("Search", "Post", new {search = Model})

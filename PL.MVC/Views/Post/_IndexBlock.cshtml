@@ -1,0 +1,15 @@
+﻿@model PL.MVC.Infrastructure.BlockInfo<PL.MVC.Models.Post.PostViewModel>
+
+@Html.Partial("_List", Model.Items)
+
+@if (Model.CurrentItems < Model.TotalItems)
+{
+    <div id="block-@Model.PageNumber">
+        <ul class="pager">
+            <li><a data-ajax="true" data-ajax-mode="replace" data-ajax-update="#block-@Model.PageNumber" href=@Url.Action("Main", "Post", new {page = ++Model.PageNumber})>
+                    Load more
+                </a>
+            </li>
+        </ul>
+    </div>
+}

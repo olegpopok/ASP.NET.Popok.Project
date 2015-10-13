@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/Content/Site.css"/>
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body >
+@Html.Partial("_Header")
+<main>
+    <section class="container">
+        @RenderBody()
+    </section>
+</main>
+<div class="container-fluid">
+    <div class="panel-footer"></div>
+</div>
+@Scripts.Render("~/bundles/jquery")
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+@RenderSection("scripts", required: false)
+</body>
+</html>

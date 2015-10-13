@@ -1,0 +1,46 @@
+﻿@model PL.MVC.Models.Post.PostViewModel
+
+@{
+    var userLike = Model.Likes.SingleOrDefault(like => like.UserName.Equals(HttpContext.Current.User.Identity.Name, StringComparison.OrdinalIgnoreCase));
+    if (userLike != null)
+    {
+        Model.Likes.Remove(userLike);
+    }
+    Model.Likes.Sort((a, b) => b.CreateDate.CompareTo(a.CreateDate));
+}
+
+@Html.PostLikes(Model.Likes)
+<h1 class="post-description"> @Model.Description</h1>
+<section class="post-feedback">
+    <div class="row vertical-align">
+        <div id="like-@Model.Id.ToString()" class="col-lg-2 text-left">
+            @{ var updateId = "#like-" + Model.Id.ToString(); }
+            @if (userLike == null)
+            {
+                <a data-ajax="true" data-ajax-mode="replace" data-ajax-update="@updateId" href=@Url.Action("Create", "Like", new {id = Model.Id})>
+                    <span class="glyphicon glyphicon-heart-empty post-like gi-2x gi-gray"></span> 
+                </a>
+            }
+            else
+            {
+                <a data-ajax="true" data-ajax-mode="replace" data-ajax-update="@updateId" href=@Url.Action("Delete", "Like", new {id = Model.Id})>
+                    <span class="glyphicon glyphicon-heart post-like gi-red gi-2x"></span> 
+                </a>
+            }
+        </div>
+        @if (Model.Author.UserName.Equals(HttpContext.Current.User.Identity.Name, StringComparison.OrdinalIgnoreCase))
+        {
+            <div class="vertical-align div-right">
+                <a data-ajax="true" class="post-feedback-link" data-ajax-mode="replace" data-ajax-update="#root-@Model.Id.ToString()" href=@Url.Action("Change", "Post", new {id = Model.Id})>
+                    <span class="glyphicon glyphicon-pencil post-like gi-2x gi-gray"></span> 
+                </a>
+                <a data-ajax="true" class="post-feedback-link" data-ajax-mode="replace" data-ajax-confirm="Are you sure?" data-ajax-update="#@Model.Id.ToString()" href=@Url.Action("Delete", "Post", new {id = Model.Id})>
+                    <span class="glyphicon glyphicon-remove-circle gi-2x gi-gray"></span> 
+                </a>
+            </div>
+        }
+    </div>
+</section>
+
+
+

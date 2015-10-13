@@ -1,0 +1,33 @@
+﻿@model PL.MVC.Models.Post.CreatePostModel
+
+@{
+    ViewBag.Title = "Create post";
+}
+
+<h2>Create post</h2>
+
+@using (Html.BeginForm("Create", "Post", FormMethod.Post, new { id = "post-create", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div>
+        @Html.LabelFor(model => model.Photo)<br>
+        @Html.EditorFor(model => model.Photo)
+        @Html.ValidationMessageFor(model => model.Photo)<br>
+
+        @Html.LabelFor(model => model.Description)<br>
+        @Html.EditorFor(model => model.Description)
+        @Html.ValidationMessageFor(model => model.Description)<br>
+
+        <input type="submit" value="Submit"/>
+    </div>
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $.validator.addMethod('accept', function () { return true; });
+    </script>
+}

@@ -1,0 +1,19 @@
+﻿@model PL.MVC.Models.Post.PostViewModel
+
+<article id="@Model.Id.ToString()" class="row post">
+    <header class="post-header">
+        <img class="owner-avatar img-circle" src="@Url.Action("Avatar", "User", new {id = Model.Author.Id})"/>
+        <div class="owner-location">
+            @Html.ActionLink(Model.Author.UserName, "Profile", "Home", new {id = Model.Author.UserName}, new {@class = "user-link"})
+        </div>
+        @Html.TimeStamp(Model.CreateDate)
+    </header>
+    <div class="post-photo-root">
+        <div class="post-photo-placeholder">
+            <img class="post-photo" src="@Url.Action("Photo", new {id = Model.Id})"/>
+        </div>
+    </div>
+    <div class="post-root" id="root-@Model.Id.ToString()">
+        @Html.Partial("_PostRoot")
+    </div>
+</article>

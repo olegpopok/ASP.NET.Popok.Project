@@ -1,0 +1,4 @@
+﻿@model Guid
+<a data-ajax="true" data-ajax-mode="replace" data-ajax-update="#like-@Model.ToString()" href="@Url.Action("Create", "Like", new {id = Model})">
+    <span class="glyphicon glyphicon-heart-empty post-like gi-2x gi-gray"></span> 
+</a>

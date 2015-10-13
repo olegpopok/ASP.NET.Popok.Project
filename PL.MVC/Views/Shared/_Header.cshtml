@@ -1,0 +1,23 @@
+﻿<div class="container-fluid header">
+    <nav class="container">
+        <div class="row vertical-align">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-left">
+                <a href="@Url.Action("Index", "Home")" class="logo">Sn<span class="glyphicon glyphicon-camera"></span>p</a>
+            </div>
+            <div class="text-center col-lg-6  col-md-6 hidden-xs col-xs-6">
+                @Html.Partial("_SearchForm")
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-right ">
+                @{ var username = HttpContext.Current.User.Identity.Name;}
+                @if (ViewContext.RouteData.Values["action"].ToString() == "Profile" && ViewContext.RouteData.Values["id"].ToString() == username)
+                {
+                    @Html.ActionLink("Log off", "LogOff", "Account", null, new {@class = "user-link"})
+                }
+                else
+                {
+                    @Html.ActionLink(username, "Profile", "Home", new {id = username}, new {@class = "user-link"})
+                }
+            </div>
+        </div>
+    </nav>
+</div>

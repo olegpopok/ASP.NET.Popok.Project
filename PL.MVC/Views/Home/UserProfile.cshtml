@@ -1,0 +1,21 @@
+﻿@model PL.MVC.Models.User.UserViewModel
+
+@{
+    ViewBag.Title = Model.Name + "(@" + Model.UserName + ")";
+}
+
+<div>
+    <img class="avatar" width="150" height="150" src="@Url.Action("Avatar", "User", new {id = Model.Id})"/>
+    <div>@Model.UserName</div>
+    <div>@Model.Name</div>
+    @Html.DisplayFor(model => model.Bio) <br/>
+    @Html.DisplayFor(model => model.Website) <hr>
+    @if (Model.UserName.Equals(ViewContext.HttpContext.User.Identity.Name, StringComparison.OrdinalIgnoreCase))
+    {
+        <div>@Html.ActionLink("Add post", "Create", "Post")</div>
+        <div> @Html.ActionLink("Edit profile", "EditProfile", "Account")</div>
+    }
+</div>
+<div id="posts">
+     @Html.Action("UserList", "Post", new {id = Model.Id})
+</div>

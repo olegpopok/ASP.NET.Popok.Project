@@ -1,0 +1,24 @@
+﻿@model PL.MVC.Models.Post.ChangePostModel
+
+@using (Ajax.BeginForm("Change", null, new AjaxOptions { UpdateTargetId = "root-" + Model.Id }, new { @class = "form-group" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    
+    <div class="label-for">
+        @Html.EditorFor(model => model.Id)
+    </div>
+
+    
+    @Html.LabelFor(model=>model.Description)
+
+    <div class="editor-for">
+        @Html.TextAreaFor(model => model.Description, new {@class = "form-control", rows = "5"})
+    </div>
+    
+    @Html.ValidationMessageFor(model => model.Description)
+
+    <input type="submit" value="Save" class="btn btn-info btn-sm"/>
+    <a class="btn btn-default btn-sm" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#root-@Model.Id.ToString()"
+        href=@Url.Action("ChangeCancel", "Post", new {id = Model.Id}) >Cancel</a>
+}

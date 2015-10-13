@@ -1,0 +1,43 @@
+﻿@model PL.MVC.Models.Account.EditProfileModel
+
+@{
+    ViewBag.Title = "Edit profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit profile</h2>
+<div>@ViewBag.Message</div>
+<hr/>
+
+@Html.ActionLink("Change password", "ChangePassword")<br/>
+
+@using (@Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    
+    @Html.LabelFor(model => model.UserName)<br/>
+    @Html.EditorFor(model => model.UserName)
+    @Html.ValidationMessageFor(model => model.UserName)<br/>
+    
+    
+    @Html.LabelFor(model => model.Name)<br/>
+    @Html.EditorFor(model => model.Name)
+    @Html.ValidationMessageFor(model => model.Name)<br/>
+    
+    @Html.LabelFor(model => model.Bio)<br/>
+    @Html.EditorFor(model => model.Bio)
+    @Html.ValidationMessageFor(model => model.Bio)<br/>
+    
+    @Html.LabelFor(model => model.Website)<br/>
+    @Html.EditorFor(model => model.Website)
+    @Html.ValidationMessageFor(model => model.Website)<br/>
+
+    <input type="submit" value ="submit"/>
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,36 @@
+﻿@model DateTime
+@{
+    var dateDif = DateTime.Now.Subtract(Model);
+    string dispaly = String.Empty;
+    if (dateDif.Days >= 365)
+    {
+        dispaly = (dateDif.Days/365).ToString() + " y";
+    }
+    else if(dateDif.Days >= 30)
+    {   
+        dispaly = (dateDif.Days/30).ToString() + " d";
+    }
+    else if(dateDif.Days >= 7)
+    {
+        dispaly = (dateDif.Days/7).ToString() + " w";
+    }
+    else if(dateDif.Days > 0)
+    {
+        dispaly = dateDif.Days.ToString() + " d";
+    }
+    else if(dateDif.Hours > 0)
+    {
+        dispaly = dateDif.Hours.ToString() + " h";
+    }
+    else if(dateDif.Minutes > 2)
+    {
+        dispaly = dateDif.Minutes.ToString() + " m";
+    }
+    else
+    {
+        dispaly = dateDif.Seconds.ToString() + " sec";
+    }
+}
+<div class="timestamp">
+    @dispaly
+</div>

@@ -1,0 +1,220 @@
+﻿* {
+    font-size: 14px;
+}
+div, section, article{
+    position: relative;
+  
+}
+
+main {
+    background: #FAFAFA;
+    padding: 0;
+    min-height: 380px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+nav.container {
+    padding: 15px 0 15px 0;
+}
+
+.container {
+    max-width: 600px;
+    padding: 0;
+}
+
+.header {
+    border-bottom: 1px solid #EEEEEE;
+    padding: 0 20px 0 20px;
+}
+
+.owner-avatar {
+    width: 30px;
+    height: 30px;
+    background-color: rgb(251, 251, 251);
+    border-bottom-color: rgb(204, 207, 208);
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-image-outset: 0px;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-source: none;
+    border-image-width: 1;
+    border-left-color: rgb(204, 207, 208);
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-right-color: rgb(204, 207, 208);
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-top-color: rgb(204, 207, 208);
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-top-style: solid;
+    border-top-width: 1px;
+    box-sizing: border-box;
+    padding: 0;
+    flex-basis: 30px;
+    margin: -1px 10px -1px -5px;
+   }
+.post-header {
+    -webkit-box-align: center;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    align-items: center;
+    padding: 14px 20px 14px 20px;
+    height: 64px;
+    position: relative;
+    vertical-align: baseline;
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+}
+
+.vertical-align {
+    display: -webkit-flex; /* Safari */
+    -webkit-align-items: center; /* Safari 7.0+ */
+    display: flex;
+    align-items: center;
+}
+
+.timestamp {
+    color: #a5a7aa;
+}
+.owner-location {
+    display: block;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    flex-shrink: 1;
+    line-height: 0;
+    align-items: stretch;
+    box-sizing: border-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column; 
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+.user-link {
+    font-weight: bold;
+    
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 28px;
+}
+
+
+.panel-footer {
+    min-height: 80px;
+}
+.post {
+    border: 1px solid #EEEEEE;
+    background: white;
+    padding: 0;
+    margin: 50px 0 50px 0;
+}
+
+
+.post-photo {
+    height: 100%;
+    width: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    -webkit-user-select: none;
+}
+
+.post-photo-root {
+    border-bottom: 1px solid #eeefef;
+    border-top: 1px solid #eeefef;
+    box-shadow: inset 0 0 20px 0 #edeeee;
+    background-color: #edeeee;
+    display: block;
+    width: 100%;
+    position: relative;
+}
+.post-photo-placeholder {
+    padding-bottom: 75%;
+    display: block;
+    overflow: hidden;
+    position: relative;
+}
+
+.post-root {
+    padding: 0 20px 0 20px;
+    word-wrap: break-word;
+}
+
+.likes-block{
+    color: #4b4f54;
+    display: block;
+    position: relative;
+    margin: 15px 0 7px 0;
+}
+.post-description {
+    margin: 7px 0 7px 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+.post-feedback {
+    border-top: 1px solid #eeefef;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    justify-content: center;
+    min-height: 48px;
+    margin-top: 9px;
+}
+.post-like {
+    display: block;
+    overflow: hidden;
+        white-space: nowrap;
+}
+
+.gi-2x {
+    font-size: 2em;
+    padding: 5px 0 5px 0;
+}
+
+.gi-gray:hover {
+    color: #BFBFBF;
+}
+
+.gi-gray {
+    color: #9E9E9E;
+}
+
+.gi-red {
+    color: #C71C30;
+}
+
+.gi-red:hover {
+    color: #FF2942;
+}
+
+.post-feedback-link {
+    padding: 0 5px 0 5px;
+}
+.div-right {
+    position: absolute;
+    right: 0px;
+    width: auto;
+}
+
+.editor-for {
+    padding: 5px 0 5px 0;
+}
+
+.label-for{
+    margin: 5px 0 ;
+}
+
